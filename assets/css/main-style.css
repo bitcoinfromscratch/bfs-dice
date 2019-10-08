@@ -1,0 +1,58 @@
+.hidden{
+    display: none;
+}
+.visible{
+    display:inline;
+}
+
+.top-title{
+    font-size:1.8em;
+}            
+.title{
+    font-size:1.2em;
+}
+a:hover{
+    text-decoration: none;
+}
+@font-face {
+    font-family: 'IranSans';
+    src: url("/assets/fonts/IRANSansWeb.woff") format("woff");
+    font-weight: normal; 
+    font-display: block;
+} 
+@font-face {
+    font-family: 'IranSans-bold';
+    src: url("/assets/fonts/IRANSansWeb_Bold.woff") format("woff");
+    font-weight: bold; 
+    font-display: block;
+}             
+.ir_title{
+    font-family: IranSans;
+    font-size:1em;
+}
+.ir_title_bold{
+    font-family: IranSans-bold;
+    font-size:1.1em;
+}
+b,
+strong{
+    font-family: IranSans-bold;
+}
+.ir_faq_title{
+    font-family: IranSans;
+    font-size:.75em;
+}            
+body{
+    font-family: IranSans;
+    font-size: .95em;
+}
+.rtl_lang{
+    direction: rtl;
+    text-align: right !important;
+}
+.yellow-background-header{
+    background-color:yellow;
+    color:red;
+    font-size:1.2em;
+    padding:10px;
+}

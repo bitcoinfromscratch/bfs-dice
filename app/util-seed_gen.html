@@ -1,0 +1,246 @@
+<html>
+    <title>BITCOIN FROM SCRATCH</title>
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+
+    <style>
+        @font-face {
+            font-family: 'IranSans';
+            src: url("/assets/fonts/IRANSansWeb.woff") format("woff");
+            font-weight: normal; 
+            font-display: block;
+        } 
+        @font-face {
+            font-family: 'IranSans-bold';
+            src: url("/assets/fonts/IRANSansWeb_Bold.woff") format("woff");
+            font-display: block;
+        }
+        .ir_help{
+            font-family: IranSans;
+            font-size:.75em;
+        }
+        .ir_boldtext{
+            font-family: IranSans-bold;
+            font-size:.9em;
+            font-weight: bold;
+        }
+        strong{
+            font-family: IranSans-bold;
+        }  
+        .rtl_lang{
+            direction: rtl;
+            text-align: right !important;
+        } 
+        .hidden{
+            display: none;
+        }
+        .visible{
+            display:inline;
+        }
+        .fade-state{
+            opacity: .3;
+        }
+        .modal-hidden{
+            display:none;
+        }
+        .modal-visible{
+            width:100%;
+            height: 100%;
+            position:fixed;
+            top:0px;
+            left:0px;
+            z-index: 100;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+        #bip39_seed,
+        #all_random_numbers,
+        #private_key_text,
+        #dice_roll_result{
+            border-radius: 5px !important;
+            border-top-left-radius: 0px !important;
+            border-bottom-left-radius: 0px !important;
+        }
+        #bip39_seed_area,
+        #all_random_numbers_area,
+        #privatekey_text_area,
+        #dice_text_area{
+            border-radius: 5px !important;
+            border-top-right-radius: 0px !important;
+            border-bottom-right-radius: 0px !important;
+            resize: none;
+        }
+        .dice-input-style{
+            margin-top:5px;
+            width:40px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .red-border{
+            border:solid 3px red;
+        }
+    </style>
+    <body style="background-color: #666;">
+        <div class="mx-3 mt-3 mb-2">
+        <div id="div_seed_gen" style="border:solid 10px #1f5e06;height:605px;">
+            
+            <div id="div_five_set_dice" class="row pt-2 pb-1 px-4 fade-state">
+                
+                <div id="div_dices" class="col text-center">
+                    <div class="row">
+                        <div class="col"><img id="dice_1" src="/assets/images/yellow-dice0.png" style="height:110px;"><input type="text" id="dice_roll_input_1"  maxlength="1" class="dice-input-style" disabled></div>
+                        <div class="col"><img id="dice_2" src="/assets/images/yellow-dice0.png" style="height:110px;"><input type="text" id="dice_roll_input_2"  maxlength="1" class="dice-input-style" disabled></div>
+                        <div class="col"><img id="dice_3" src="/assets/images/yellow-dice0.png" style="height:110px;"><input type="text" id="dice_roll_input_3"  maxlength="1" class="dice-input-style" disabled></div>
+                        <div class="col"><img id="dice_4" src="/assets/images/yellow-dice0.png" style="height:110px;"><input type="text" id="dice_roll_input_4"  maxlength="1" class="dice-input-style" disabled></div>
+                        <div class="col"><img id="dice_5" src="/assets/images/yellow-dice0.png" style="height:110px;"><input type="text" id="dice_roll_input_5"  maxlength="1" class="dice-input-style" disabled></div>
+                    </div>
+                </div>
+                <div class="col-2 mt-4 pr-5">
+                    <div>
+                        <div class="row">
+                            <div class="col text-center">
+                                <img id="img_add_diceroll_round_data" src="/assets/images/seed-gen-red-plus.png" style="height: 80px;cursor: pointer;">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div id="div_label_diceroll_counter" class="col text-center" style="padding-top:5px; font-family:Arial, Helvetica, sans-serif; color: #f0f0f0;;font-size:1.4em;font-weight: bold;">
+                                <label id="lbl_diceroll_counter">0</label> / 20
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row" >
+                <div class="direction_aware col mt-2 mb-2 px-2 py-1 ir_help" 
+                style="border-radius: 5px; margin-left:63px;margin-right: 63px; color:f9f9f9;border:solid 2px #e8de1a;height:60px;background-color: #333;">
+                    <div id="div_help_step_initial" class="pt-1 text-center" style="font-size: 1.4em;">
+                        <span id="spn_help_step_initial" class="px-1"></span>
+                        <img id="img_go_to_dice_roll_step" src="/assets/images/seed-gen-blue-start.png" style="height: 40px;cursor: pointer;">
+                    </div>
+                    <div id="div_help_step_dice_roll" class="hidden" style="font-size: 1.3em;">
+                    </div>
+                    <div id="div_help_step_gen_computer_rndm" class="hidden" style="font-size: 1.3em;">
+                    </div>
+                    <div id="div_help_step_gen_mnemonic_seed" class="hidden" style="font-size: 1.3em;">
+                        <div class="row">
+                            <div class="col-1">
+                                <img src="/assets/images/seed-gen-green-success.png" style="height: 49px;">
+                            </div>
+                            <div id="div_help_step_success" class="col-11" style="font-size:1em;margin-top:2px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" >
+                <div class="col text-left">
+                    <div dir="rtl" id="div_dice_random_result" class="input-group px-5 py-1 fade-state ">
+                        <div class="input-group-prepend">
+                            <span id="dice_roll_result" class="input-group-text ir_boldtext"></span>
+                        </div>
+                        <textarea id="dice_text_area" tabindex="-1" class="form-control text-left" dir="ltr" readonly aria-label="With textarea"></textarea>
+                    </div>
+
+                    <div id="div_help_danger_warning" class="text-left mx-5 mt-1 mb-2 px-2 ir_help hidden" 
+                        style="border-radius: 5px; color:f9f9f9;border:solid 2px #e8de1a;height:104px;background-color: #333;">
+                        <div class="mt-1" style="font-size: 1.6em;">
+                            <div class="row direction_aware">
+                                <div class="col-1">
+                                    <img class="mt-3" src="/assets/images/danger-hand.png" style="height: 60px;">
+                                </div>
+                                <div id="div_help_warning" class="col-11" style="margin-top:2px;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div id="div_gen_computer_random" class="mt-1 mb-1 px-2 px-5  fade-state ir_boldtext">
+                        <button class="btn btn-info font-weight-bold" type="button"
+                            id="btn_generate_computer_random" tabindex="-1" style="width:100%;font-size:1.3em;" disabled>
+                            GENERATE SEED AND BIP39 MNEMONIC 
+                            <span id="gen_seed_spinner" class="spinner-grow spinner-grow-lg" style="visibility: hidden;"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col" dir="rtl">
+                    <div id="div_pk_before_xor" class="input-group px-5 py-1 fade-state">
+                        <div class="input-group-prepend ir_boldtext">
+                            <span id="all_random_numbers" class="input-group-text"></span>
+                        </div>
+                        <textarea id="all_random_numbers_area" tabindex="-1" class="form-control text-left" dir="ltr"
+                            aria-label="With textarea" style="font-size:.95em;" readonly></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col" dir="rtl">
+                    <div id="div_privatekey" class="input-group px-5 py-1 fade-state">
+                        <div class="input-group-prepend ir_boldtext">
+                            <span id="private_key_text" class="input-group-text" id="inputGroup-sizing-lg"></span>
+                        </div>
+                        <input id="privatekey_text_area" tabindex="-1" class="form-control" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-lg" dir="ltr" readonly>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col" dir="rtl">
+                    <div id="div_mnemonic" class="input-group px-5 pt-1 fade-state">
+                        <div class="input-group-prepend ir_boldtext">
+                            <span id="bip39_seed" class="input-group-text font-weight-bold"></span>
+                        </div>
+                        <textarea id="bip39_seed_area" rows="3" tabindex="-1" class="form-control text-left" dir="ltr" aria-label="With textarea"
+                            style="font-size:1.1em;font-weight: bold;" readonly></textarea>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="div_connection_detected" class="modal-hidden" style="background-color: #333;">
+        <div class="mx-3 mt-3 mb-2">
+            <div id="div_seed_gen" class="text-center mx-3 px-5" style="border:solid 10px #ff4d4d;height:605px;">
+                <img src="/assets/images/warning-red-triangle.png" style="width:200px;margin-top:100px;">
+                <br/>
+                <br/>
+                <span id="spn_connection_state_error" dir="rtl" class="text-center ir_boldtext font-weight-bold" style="color:#f0f0f0;font-size:1.5em;">
+                </span>
+            </div>
+        </div>      
+    </div>
+
+    <div id="div_seed_gen_consent_splash" class="modal-visible direction_aware" style="background-color: #333;">
+        <div class="mx-3 mt-3 mb-2">
+            <div id="div_seed_gen" class="text-center mx-3 px-5" style="border:solid 10px #666;height:605px;">
+                <img src="/assets/images/green-warning.png" style="width:200px;margin-top:100px;">
+                <br/>
+                <br/>
+                <span id="spn_seed_gen_consent_message" dir="rtl" class="text-center ir_boldtext font-weight-bold" style="color:#f0f0f0;font-size:1.4em;"></span>
+                <br>
+                <br>
+                <button class="btn btn-info font-weight-bold" type="button"
+                    id="btn_seed_gen_consent_continue" tabindex="-1" style="width:70%;font-size:1.3em;">
+                    <span id="spn_seed_gen_consent_continue" class="ir_boldtext"></span>
+                    <!-- <span id="gen_seed_spinner" class="spinner-grow spinner-grow-lg" style="visibility: hidden;"></span> -->
+                </button>
+            </div>
+        </div>      
+    </div>      
+
+    <script type="text/javascript" src="/dist/util-seed_gen_bundle.js"></script>
+    <script type="text/javascript" src="/dist/localizer_bundle.js"></script>
+    </body>
+</html>

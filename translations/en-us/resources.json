@@ -1,0 +1,45 @@
+{
+    "general": {
+        "direction": "ltr"
+    },
+    "main_page": {
+        "spn_main_page_title": "Bitcoin From Scratch",
+        "spn_main_page_desc": "An offline tool to generate bitcoin private key and mneonic words by help of dice",
+        "spn_main_page_step_one_title": "why the way we generate private key is important",
+        "spn_main_page_step_one_desc": "section desc",
+        "spn_main_page_step_two_title": "first-step; generating private key by dice",
+        "spn_main_page_step_two_desc": "step-two description",
+        "spn_main_page_step_three_title": "second-step how to use electrum with the generated private key",
+        "spn_main_page_step_three_desc": "section desc",
+        "spn_main_page_step_four_title": "future-steps; privacy and full node",
+        "spn_main_page_step_four_desc": "section desc",
+        "spn_main_page_splash_first_section": "first section",
+        "spn_main_page_splash_second_section": "second section",
+        "spn_main_page_splash_third_section": "third section",
+        "spn_main_page_splash_forth_section": "forth section",
+        "spn_main_page_splash_fifth_section": "fifth section",
+        "btn_close_modal": "Continue",
+        "btn_close_modal_and_forget": "Don't show again",
+        "spn_main_page_footer_message": "to view code go to github",
+        "spn_main_page_check_hash_tutorial_title": "hash tutorial",
+        "spn_main_page_check_hash_tutorial_content_page_header": "how to retrieve has in any operation system",
+        "spn_main_page_more_information": "more information"
+    },
+    "content_pages": {
+        "spn_back_to_home_title": " home"
+    },
+    "seed_gen": {
+        "spn_help_step_initial": "spn_help_step_initial. part two",
+        "div_help_step_dice_roll": "div_help_step_dice_roll. part two",
+        "div_help_step_gen_computer_rndm": "div_help_step_gen_computer_rndm. part two",
+        "div_help_step_success": "div_help_step_success. part two",
+        "dice_roll_result": "dice_roll_result",
+        "div_help_warning": "div_help_warning",
+        "all_random_numbers": "all_random_numbers",
+        "private_key_text": "private_key_text",
+        "bip39_seed": "bip39_seed",
+        "spn_connection_state_error": "spn_connection_state_error. part two",
+        "spn_seed_gen_consent_message": "consent splash message",
+        "spn_seed_gen_consent_continue": "Continue"
+    }
+}
