@@ -21,5 +21,8 @@ $('#btn_close_modal_and_forget').click( _ => {
 
 $.get( "/version", function(data) {
     $('#spn_main_page_footer_version_number').text(data)
-    // console.log(data)
+})
+
+$('#drpdwn_select_language').change( _ => {
+    window.location.href = "/?lang="+$('#drpdwn_select_language').val()
 })

@@ -28,7 +28,6 @@ function goto_dice_roll_step(){
     $('#dice_5').css('cursor', 'pointer')      
 }
 function goto_gen_computer_rndm_step(){
-
     _dice_roll_is_enabled=false
 
     $('#div_five_set_dice').addClass('fade-state')
@@ -49,8 +48,6 @@ function goto_gen_computer_rndm_step(){
     $('#dice_5').css('cursor', 'default')
 
     $('#img_add_diceroll_round_data').css('cursor', 'default')
-
-    
 }
 function goto_gen_mnemonic_step(){
     _dice_roll_is_enabled=false
@@ -106,10 +103,9 @@ function add_diceroll_round_data(){
     $('#dice_5').attr('src', '/assets/images/yellow-dice0.png')
     $('#dice_roll_input_1').focus()
 
-    if(_diceroll_counter == 2){
+    if(_diceroll_counter == 20){
         goto_gen_computer_rndm_step()
     }
-
 }
 
 function rotate_dice(dice_position){
@@ -150,23 +146,30 @@ $('#img_add_diceroll_round_data').click( _ => {
     add_diceroll_round_data()
 })
 $('#btn_generate_computer_random').click( _ => {
-    // replace this with actual dice roll results
-    $('#gen_seed_spinner').css('visibility', 'visible')
-    $('#btn_generate_computer_random').attr('disabled', 'true')
-    window.setTimeout( _ => {
-        generate_seed('1315303353531224310345305053111405015122034155010522421052213052515034505250300031402250122545340342')
-    }, 7000)
+
+    // validate dice roll result
+    if($('#dice_text_area').val().replace(/ /g,"").length != 100){
+        // dice roll result should be 100
+        alert("Invalid Dice roll result. Try again.")
+    }else{
+        $('#gen_seed_spinner').css('visibility', 'visible')
+        $('#btn_generate_computer_random').attr('disabled', 'true')
+        
+        window.setTimeout( _ => {
+            // generate_seed('13153 63353 53122 43163 45365 65311 14656 15122 63415 56165 22421 65221 36525 15634 56525 63666 31462 25612 25453 46342')
+            // generate_seed('13153 63353 53122 43163 45365 65311 14656 15122 63415 56165 22421 65221 36525 15634 56525 63666 31462 25612 25453')
+            generate_seed($('#dice_text_area').val())
+        }, 7000)
+
+    }
+
 })
 
-function generate_seed(dice_entropy){
-    // validate dice values
+function generate_seed(dice_roll){
     crypto(32, function (err, resp) {
         if (!err) {
-            // disable the generate button and add spinner to it
-            $('#btn_generate_computer_random').attr('disabled', 'true')
-
+            var dice_roll_hex = bignumber(dice_roll.replace(/ /g,"").replace(/6/g,"0"), 6).toString(16)
             var random_bytes_hex = resp.toString('hex')
-            var dice_roll_hex = bignumber(dice_entropy, 6).toString(16)
 
             var xored_array = new Array()
             var randombyte_buff = new Buffer.from(random_bytes_hex, 'hex')
@@ -177,15 +180,14 @@ function generate_seed(dice_entropy){
             }
 
             var xored_array_binary = new Buffer.from(xored_array)
-            if(xored_array_binary.length == 32 && bignumber(xored_array_binary.toString('hex'), 16).toString(16).length == 64){
+            if(xored_array_binary.length == 32 && xored_array_binary.toString('hex').length == 64){
                 $('#all_random_numbers_area').text('DICE: '+dice_roll_hex + '\n' + 'RNDM: ' + random_bytes_hex)
-                $('#privatekey_text_area').val(bignumber(xored_array_binary.toString('hex'), 16).toString(16))
-                $('#bip39_seed_area').text(bip39.entropyToMnemonic(bignumber(xored_array_binary.toString('hex'), 16).toString(16)))
+                $('#privatekey_text_area').val(xored_array_binary.toString('hex'))
+                $('#bip39_seed_area').text(bip39.entropyToMnemonic(xored_array_binary.toString('hex')))
     
                 _privatekey_generated=true
                 goto_gen_mnemonic_step()
             }else{
-                $('#gen_seed_spinner').css('visibility', 'visible')
                 window.setTimeout( _ => {
                     generate_seed(dice_entropy)
                 }, 3500)
@@ -20336,7 +20338,7 @@ module.exports={
   "_resolved": "https://registry.npmjs.org/elliptic/-/elliptic-6.5.1.tgz",
   "_shasum": "c380f5f909bf1b9b4428d028cd18d3b0efd6b52b",
   "_spec": "elliptic@^6.0.0",
-  "_where": "/home/bidel/develop/bitcoin-from-scratch/bfs-gui/node_modules/browserify-sign",
+  "_where": "/Users/bidel/develop/seed_gen/node_modules/browserify-sign",
   "author": {
     "name": "Fedor Indutny",
     "email": "fedor@indutny.com"

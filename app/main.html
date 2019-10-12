@@ -39,7 +39,6 @@
         }
     </style>
 </head>
-
 <body class="direction_aware">
     <div class="container-fluid">
         <div class="row mt-2 mx-3">
@@ -125,8 +124,9 @@
                     <a href="/contact-page" style="color:#333;">
                         <span id="spn_main_page_more_information"></span>
                         <img src="/assets/images/black-email-icon.png" style="height: 25px;">
-                        <img src="/assets/images/glacier-protocol-icon.jpeg" style="height: 25px;">
+                        <img src="/assets/images/glacier-protocol-icon.png" style="height: 25px;">
                         <img src="/assets/images/gh-black-icon.png" style="height: 25px;">
+                        <img src="/assets/images/world-icon.png" style="height:25px">
                     </a>
                 </div>
             </div>
@@ -182,34 +182,26 @@
                                 style="font-size:.9em;text-align: justify;">
                             </div>
                             <div class="col-2">
-                                <img src="/assets/images/glacier-protocol-icon.jpeg" class="mt-1" style="height: 50px;">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row px-5" style="display: none;">
-                <div class="col ">
-                    <div class="alert alert-warning" role="alert">
-                        <div class="row">
-                            <div id="spn_main_page_splash_fifth_section" class="col-10"
-                                style="font-size:.8em;text-align: justify;">
-                            </div>
-                            <div class="col-2">
-                                <img src="/assets/images/check-hash-icon.jpg" class="mt-1" style="height: 40px;">
+                                <img src="/assets/images/glacier-protocol-blue-icon.jpeg" class="mt-1" style="height: 50px;">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
+                <div class="mx-3" style="border-radius: 7px;border:solid 1px #333;opacity: .6;">
+                    <img src="/assets/images/world-icon.png" style="height:20px" class="mx-1">
+                    <select id="drpdwn_select_language" style="border-width: 0px;background-color:#f0f0f0;">
+                        <option value="lang">Language</option>
+                        <option value="en-us">English</option>
+                        <option value="fa-ir">فارسی</option>
+                    </select>
+                </div>
                 <button id="btn_close_modal" type="button" class="btn btn-primary mx-1" data-dismiss="modal"></button>
                 <button id="btn_close_modal_and_forget" type="button" class="btn btn-secondary mx-1"></button>
             </div>
         </div>
-
         <script type="text/javascript" src="/dist/main_bundle.js"></script>
         <script type="text/javascript" src="/dist/localizer_bundle.js"></script>
 </body>
-
 </html>

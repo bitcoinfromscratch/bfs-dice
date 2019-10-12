@@ -44,14 +44,11 @@ $.get( "/translations/localized-content", function(data) {
         $('#spn_main_page_splash_second_section').html(data.main_page.spn_main_page_splash_second_section)
         $('#spn_main_page_splash_third_section').html(data.main_page.spn_main_page_splash_third_section)
         $('#spn_main_page_splash_forth_section').html(data.main_page.spn_main_page_splash_forth_section)
-        // $('#spn_main_page_splash_fifth_section').html(data.main_page.spn_main_page_splash_fifth_section)
 
         $('#btn_close_modal').html(data.main_page.btn_close_modal)
         $('#btn_close_modal_and_forget').html(data.main_page.btn_close_modal_and_forget)
         $('#spn_main_page_footer_message').text(data.main_page.spn_main_page_footer_message)
 
-        $('#spn_main_page_check_hash_tutorial_title').html(data.main_page.spn_main_page_check_hash_tutorial_title)
-        $('#spn_main_page_check_hash_tutorial_content_page_header').html(data.main_page.spn_main_page_check_hash_tutorial_content_page_header)
         $('#spn_main_page_more_information').html(data.main_page.spn_main_page_more_information)
         $('#spn_main_page_footer_twitter_handle').html(data.main_page.spn_main_page_footer_twitter_handle)
         $('#spn_main_page_more_information_content_page_header').html(data.main_page.spn_main_page_more_information_content_page_header)

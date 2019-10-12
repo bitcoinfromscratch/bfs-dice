@@ -2,7 +2,9 @@
 const express = require('express')
 const app = express()
 const path = require('path')
-const store = require('store')
+
+const Store = require('electron-store')
+const store = new Store()
 
 module.exports = function(){
 
@@ -10,17 +12,32 @@ module.exports = function(){
     app.use('/assets', express.static(__dirname +'/assets'))
     app.use('/dist', express.static(__dirname +'/app/js/dist'))
 
-    // translated content
-    app.use('/translations/step-one-content', express.static(__dirname +`/translations/${store.get('s-lang')}/dist/step-one-content.html`))
-    app.use('/translations/step-two-content', express.static(__dirname +`/translations/${store.get('s-lang')}/dist/step-two-content.html`))
-    app.use('/translations/step-three-content', express.static(__dirname +`/translations/${store.get('s-lang')}/dist/step-three-content.html`))
-    app.use('/translations/step-four-content', express.static(__dirname +`/translations/${store.get('s-lang')}/dist/step-four-content.html`))
-    app.use('/translations/util-check-hash-content', express.static(__dirname +`/translations/${store.get('s-lang')}/dist/util-check_hash-content.html`))
-    app.use('/translations/onetime-softwarewallet-content', express.static(__dirname +`/translations/${store.get('s-lang')}/dist/onetime-softwarewallet-content.html`))
-    app.use('/translations/contact-page-content', express.static(__dirname +`/translations/${store.get('s-lang')}/dist/contact-page-content.html`))
-    app.use('/translations/localized-content', express.static(__dirname + `/translations/${store.get('s-lang')}/resources.json`))
+    // translation resources
+    app.get('/translations/localized-content', function(req, res){
+        res.sendFile(path.join(__dirname, `/translations/${store.get('s-lang')}/resources.json`))
+    })
+    app.get('/translations/contact-page-content', function(req, res){
+        res.sendFile(path.join(__dirname, `/translations/${store.get('s-lang')}/dist/contact-page-content.html`))
+    })
+    app.get('/translations/step-one-content', function(req, res){
+        res.sendFile(path.join(__dirname, `/translations/${store.get('s-lang')}/dist/step-one-content.html`))
+    })
+    app.get('/translations/step-two-content', function(req, res){
+        res.sendFile(path.join(__dirname, `/translations/${store.get('s-lang')}/dist/step-two-content.html`))
+    })
+    app.get('/translations/step-three-content', function(req, res){
+        res.sendFile(path.join(__dirname, `/translations/${store.get('s-lang')}/dist/step-three-content.html`))
+    })
+    app.get('/translations/step-four-content', function(req, res){
+        res.sendFile(path.join(__dirname, `/translations/${store.get('s-lang')}/dist/step-four-content.html`))
+    })            
 
     app.get('/', function(req, res) {
+        if(req.query.lang){
+            store.set('s-lang', req.query.lang)
+        }else if(!store.get('s-lang')){
+            store.set('s-lang', 'en-us')
+        }
         res.sendFile(path.join(__dirname, 'app/main.html'))
     })
 

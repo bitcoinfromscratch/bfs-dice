@@ -4,7 +4,7 @@
     },
     "main_page": {
         "spn_main_page_title": "Bitcoin From Scratch",
-        "spn_main_page_desc": "An offline tool to generate bitcoin private key and mneonic words by help of dice",
+        "spn_main_page_desc": "Generate bitcoin BIP39 mnemonic words with rolling dice and a guide to keep bitcoin safe with Electrum wallet",
         "spn_main_page_step_one_title": "why the way we generate private key is important",
         "spn_main_page_step_one_desc": "section desc",
         "spn_main_page_step_two_title": "first-step; generating private key by dice",
@@ -17,29 +17,28 @@
         "spn_main_page_splash_second_section": "second section",
         "spn_main_page_splash_third_section": "third section",
         "spn_main_page_splash_forth_section": "forth section",
-        "spn_main_page_splash_fifth_section": "fifth section",
         "btn_close_modal": "Continue",
         "btn_close_modal_and_forget": "Don't show again",
         "spn_main_page_footer_message": "to view code go to github",
-        "spn_main_page_check_hash_tutorial_title": "hash tutorial",
-        "spn_main_page_check_hash_tutorial_content_page_header": "how to retrieve has in any operation system",
-        "spn_main_page_more_information": "more information"
+        "spn_main_page_footer_twitter_handle":"@bfsapp",
+        "spn_main_page_more_information": "more information",
+        "spn_main_page_more_information_content_page_header":"about project"
     },
     "content_pages": {
         "spn_back_to_home_title": " home"
     },
     "seed_gen": {
-        "spn_help_step_initial": "spn_help_step_initial. part two",
-        "div_help_step_dice_roll": "div_help_step_dice_roll. part two",
-        "div_help_step_gen_computer_rndm": "div_help_step_gen_computer_rndm. part two",
-        "div_help_step_success": "div_help_step_success. part two",
-        "dice_roll_result": "dice_roll_result",
-        "div_help_warning": "div_help_warning",
-        "all_random_numbers": "all_random_numbers",
-        "private_key_text": "private_key_text",
-        "bip39_seed": "bip39_seed",
-        "spn_connection_state_error": "spn_connection_state_error. part two",
-        "spn_seed_gen_consent_message": "consent splash message",
-        "spn_seed_gen_consent_continue": "Continue"
+        "spn_help_step_initial": "Prepare the Dice(s) and make sure network is disconnected. Then click the Start button",
+        "div_help_step_dice_roll": "Import the results of 100 dice rolls in 20 groups of 5. if you have more that 1 dice, be sure to read the results in one consistent direction (ex. left to right). insert the result of each batch by clicking on the red plus button.",
+        "div_help_step_gen_computer_rndm": "The dice roll step is completed. Now we will take a random number from your system and generate the private key. click on the below blue button and MOVE your mouse around to add some extra randomness.",
+        "div_help_step_success": "Your bitcoin private key and bip39 mnemonic words have been generated successfully. anything on the page will be purged after you close this window.",
+        "div_help_warning": "NEVER save neither mnemonic words nor private key on an online computer or you will simply lose your bitcoins. To learn how to use your private key in an offline wallet, read 'Step two' of the guide in main page.",
+        "dice_roll_result": "Dice rolls",
+        "all_random_numbers": "Random<br/>numbes",
+        "private_key_text": "Bitcoin private key",
+        "bip39_seed": "(SEED)<br/>BIP39 Mnemonic",
+        "spn_connection_state_error": "During the seed generation process, this machine should be completely offline<br/>Please disconnect either wifi or local network and start over",
+        "spn_seed_gen_consent_message": "IMPORTANT: Use this tool for educational and testing porpuse if you haven't verify the digital signature of the downloaded file yourself",
+        "spn_seed_gen_consent_continue": "RUN SEED GENERATOR TOOL"
     }
 }

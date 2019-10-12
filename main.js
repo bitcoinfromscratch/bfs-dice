@@ -1,16 +1,14 @@
 // Modules to control application life and create native browser window
 const {app, BrowserWindow} = require('electron')
 
-const store = require('store')
-store.set('s-lang', 'fa-ir')
-store.set('version-number', 'v0.1.0')
-
+const Store = require('electron-store')
+const store = new Store()
+store.set('version-number', 'v0.1.0 - RC2')
 
 // set express app and routes
 require('./express-route-module')()
 
 const os = require('os')
-// console.log(os.platform().toLowerCase())
 var window_height;
 switch (os.platform().toLowerCase()) {
   case 'darwin':
@@ -24,13 +22,6 @@ switch (os.platform().toLowerCase()) {
     break;
 }
 
-
-// const fs = require('fs');
-// let rawdata = fs.readFileSync(__dirname+'/translations/fa-ir/resources.json');
-// let resources = JSON.parse(rawdata);
-// console.log(resources);
-
-
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
@@ -40,9 +31,6 @@ function createWindow () {
   mainWindow = new BrowserWindow({
     width: 1000,
     height: window_height
-    // webPreferences: {
-    //   // preload: path.join(__dirname, 'preload.js')
-    // }
   })
 
   mainWindow.setMenuBarVisibility(false)
@@ -87,5 +75,3 @@ app.on('activate', function () {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
-
-
