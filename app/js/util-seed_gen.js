@@ -254,7 +254,7 @@ $('#dice_roll_input_5').keyup( _=>{
     }
 })
 
-/*
+
 window.setInterval( _ => {
     check_connection_status()
 }, 3000)
@@ -266,4 +266,3 @@ function check_connection_status(){
     }
 }
 check_connection_status()
-*/

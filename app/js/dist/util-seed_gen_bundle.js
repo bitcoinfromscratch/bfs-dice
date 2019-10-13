@@ -256,7 +256,7 @@ $('#dice_roll_input_5').keyup( _=>{
     }
 })
 
-/*
+
 window.setInterval( _ => {
     check_connection_status()
 }, 3000)
@@ -268,7 +268,6 @@ function check_connection_status(){
     }
 }
 check_connection_status()
-*/
 
 }).call(this,require("buffer").Buffer)
 },{"bignumber.js":17,"bip39":19,"buffer":54,"crypto":62,"jquery":108}],2:[function(require,module,exports){
@@ -20338,7 +20337,7 @@ module.exports={
   "_resolved": "https://registry.npmjs.org/elliptic/-/elliptic-6.5.1.tgz",
   "_shasum": "c380f5f909bf1b9b4428d028cd18d3b0efd6b52b",
   "_spec": "elliptic@^6.0.0",
-  "_where": "/Users/bidel/develop/seed_gen/node_modules/browserify-sign",
+  "_where": "/home/bidel/develop/bitcoin-from-scratch/bfs-gui/node_modules/browserify-sign",
   "author": {
     "name": "Fedor Indutny",
     "email": "fedor@indutny.com"

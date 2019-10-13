@@ -4,28 +4,27 @@
     },
     "main_page": {
         "spn_main_page_title": "Bitcoin From Scratch",
-        "spn_main_page_desc": "Generate bitcoin BIP39 mnemonic words with rolling dice and a guide to keep bitcoin safe with Electrum wallet",
-        "spn_main_page_step_one_title": "why the way we generate private key is important",
-        "spn_main_page_step_one_desc": "section desc",
-        "spn_main_page_step_two_title": "first-step; generating private key by dice",
-        "spn_main_page_step_two_desc": "step-two description",
-        "spn_main_page_step_three_title": "second-step how to use electrum with the generated private key",
-        "spn_main_page_step_three_desc": "section desc",
-        "spn_main_page_step_four_title": "future-steps; privacy and full node",
-        "spn_main_page_step_four_desc": "section desc",
-        "spn_main_page_splash_first_section": "first section",
-        "spn_main_page_splash_second_section": "second section",
-        "spn_main_page_splash_third_section": "third section",
-        "spn_main_page_splash_forth_section": "forth section",
+        "spn_main_page_desc": "Generate bitcoin BIP39 mnemonic words using dice and a guide to keep bitcoin keys safe in Electrum wallet",
+        "spn_main_page_step_one_title": "On bitcoin private keys and importance of entropy",
+        "spn_main_page_step_one_desc": "The bitcoin private key and mnemonic words are explained. Also we review the concept of entropy and its importance in private key generation.",
+        "spn_main_page_step_two_title": "Step One: Generating private key using dice",
+        "spn_main_page_step_two_desc": "To generate secure bitcoin private keys we need unbiased dices. Also for the sake of security the network of this machine should be disconnected.",
+        "spn_main_page_step_three_title": "Step Two: How to use Electrum wallet",
+        "spn_main_page_step_three_desc": "We should store our private key in a secure offline wallet. Electrum wallet's cold storage feature is explained in this section with screenshots.",
+        "spn_main_page_step_four_title": "Future steps; Privacy and Full node",
+        "spn_main_page_step_four_desc": "You have succesfully generated your private key and stored it in your Electrum cold storage. This section talks about the future steps and why they are important.",
+        "spn_main_page_splash_first_section": "This is an open source and free project to educate <b>The importance of entropy in bitcoin private keys</b> and <b>How to store private keys in Electrum cold storage</b><br/>Also there is a tool to generate bitcoin private key and BIP39 mnemonic words using dice",
+        "spn_main_page_splash_second_section": "All the Github Releases are signed with the developer key. if you want to use the Dice tool you should verify the download or you simply lose your bitcoins. The digital signature is available in Github's Release tab and you can find the developer pub-key in <b>gpg-pub-key</b> folder in the Code tab.",
+        "spn_main_page_splash_third_section": "This application doesn't require internet to operate. you can even disconnect your system when it is running and it will work. But if you want to generate private key with dice, you should disconnect your system to prevent potential malwares and keylogger on your system.",
+        "spn_main_page_splash_forth_section": "The cryptographic scheme for generating the bitcoin private key comes from the Glacier project which is also an open source project. for more, click on the project's icon in the Main page.",
         "btn_close_modal": "Continue",
         "btn_close_modal_and_forget": "Don't show again",
-        "spn_main_page_footer_message": "to view code go to github",
-        "spn_main_page_footer_twitter_handle":"@bfsapp",
-        "spn_main_page_more_information": "more information",
-        "spn_main_page_more_information_content_page_header":"about project"
+        "spn_main_page_footer_message": "For more go to More Information page",
+        "spn_main_page_more_information": "More Information",
+        "spn_main_page_more_information_content_page_header":"More information about the project and Contact information"
     },
     "content_pages": {
-        "spn_back_to_home_title": " home"
+        "spn_back_to_home_title": " Home"
     },
     "seed_gen": {
         "spn_help_step_initial": "Prepare the Dice(s) and make sure network is disconnected. Then click the Start button",
@@ -38,7 +37,7 @@
         "private_key_text": "Bitcoin private key",
         "bip39_seed": "(SEED)<br/>BIP39 Mnemonic",
         "spn_connection_state_error": "During the seed generation process, this machine should be completely offline<br/>Please disconnect either wifi or local network and start over",
-        "spn_seed_gen_consent_message": "IMPORTANT: Use this tool for educational and testing porpuse if you haven't verify the digital signature of the downloaded file yourself",
+        "spn_seed_gen_consent_message": "IMPORTANT: If you haven't verify the digital signature of the downloaded file yourself, Use this tool for exprement only",
         "spn_seed_gen_consent_continue": "RUN SEED GENERATOR TOOL"
     }
 }

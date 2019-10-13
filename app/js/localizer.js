@@ -50,8 +50,6 @@ $.get( "/translations/localized-content", function(data) {
         $('#spn_main_page_footer_message').text(data.main_page.spn_main_page_footer_message)
 
         $('#spn_main_page_more_information').html(data.main_page.spn_main_page_more_information)
-        $('#spn_main_page_footer_twitter_handle').html(data.main_page.spn_main_page_footer_twitter_handle)
         $('#spn_main_page_more_information_content_page_header').html(data.main_page.spn_main_page_more_information_content_page_header)
-
     }
 });

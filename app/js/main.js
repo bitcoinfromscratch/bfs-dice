@@ -1,6 +1,6 @@
 var $ = require('jquery')
 
-if(localStorage.length < 2 && window.location.href.toString().indexOf('backtohome') <= 0){
+if(localStorage.getItem('dont_show_modal') !== 'true' && window.location.href.toString().indexOf('backtohome') <= 0){
     $('#div_modal').removeClass('modal-hidden')
     $('#div_modal').addClass('modal-visible')    
 }
@@ -15,7 +15,7 @@ $('#btn_close_modal').click( _ => {
 })
 
 $('#btn_close_modal_and_forget').click( _ => {
-    localStorage.setItem('dont_show_modal_1', 'true')
+    localStorage.setItem('dont_show_modal', 'true')
     hide_modal()
 })
 

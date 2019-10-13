@@ -1,1 +1,18 @@
-<h2 id="coucou-step-four">coucou step-four</h2>
+<p>You now have generated your secure bitcoin private key and imported it in Electrum cold wallet and watching only wallet. There is a famous quote in the bitcoin community and you are passed this level since you are managing your keys yourself.</p>
+<div dir="ltr" class="text-center mb-4 font-weight-bold">
+    <code>not your keys, not your bitcoin</code>
+</div>
+
+<p><strong>But what does it mean when we say future steps?</strong>
+Remember when we were installing our Hot wallet in Step Two when Electrum prompted for Server&#39;s address? And we chose &quot;Auto Connect&quot;. We used a public Electrum server and connected to it so our Electrum wallet could show our balance and transaction confirmations. Do you know which key we should give to the Electrum server for it to be able to do its job? Yes, the xpub key. As you may remember during the Electrum setup we said anyone with the xpub can know your addresses and balances but can not spend your bitcoin. So we know the Electrum public server which we are connected to, knows our entire history and IP address and it has privacy issues.</p>
+<p>Other consideration when we connect to a public electrum server is the trust we put into the information they give us. Suppose you have sent a bitcoin transaction sending bitcoin to an address. Who tells you how much confirmation the transaction has? The answer is the Electrum server you are connected to and the more important point is you should trust this number. And technically they can lie to you and you have no way to verify that. This brings us to the next level which is:</p>
+<div dir="ltr" class="text-center mb-4 font-weight-bold">
+    <code>not your node, not your rules</code>
+</div>
+
+<p>Every bitcoiner have to run their full node. So they can validate every transaction and enforce the Consensus rules to the network. There are two kinds of bitcoin nodes:</p>
+<ul>
+<li>Archiving node: need around 300GB of HDD (as of OCT-19) and has all the blocks from the genesis block to the latest</li>
+<li>Pruned node: just archive the latest X blocks of the blockchain and can operate with 5GB of HDD</li>
+</ul>
+<p>When you start a fresh bitcoin node, it will start to download all the blocks to the latest one and usually it takes about 1~2 days with a gigabyte internet connection and a fairly fast hardware. This process is called <strong>Initial block download</strong> But you can xcopy the blocks to your machine and instead of downloading all the blocks it will use the copied blocks and downlod the missing blocks on top of that. If you keep your bitcoin node on it needs about 1GB per day. but you don&#39;t need to keep it on all the time and in this scenario it needs about 300MB per day.</p>
