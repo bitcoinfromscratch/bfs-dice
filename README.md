@@ -1,6 +1,6 @@
 ## Bitcoin From Scratch
 
-**Guides and tutorials on:**
+### Guides and tutorials on:
 * Bitcoin private key and BIP39 mnemonic words
 * The importance of entropy in generating private keys
 * Generating Bitcoin private key and mnemonic using dice
@@ -23,3 +23,9 @@
 
 ### Works on Windows, Mac and linux
 ![](https://themesfortelegram.com/wp-content/uploads/telegram-themes-windows-mac-linux.png)
+
+<pre>
+git clone https://github.com/bitcoinfromscratch/bfs-dice.git
+npm install
+npm start
+</pre>
