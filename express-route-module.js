@@ -13,7 +13,7 @@ module.exports = function(){
         res.sendFile(path.join(__dirname, 'app/util-seed_gen.html'))
     })
 
-    app.listen(3001, function () {
+    app.listen(3000, function () {
         console.log('bfs-gui has been started')
     })
 }
