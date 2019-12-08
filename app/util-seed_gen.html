@@ -1,30 +1,19 @@
 <html>
-    <title>BITCOIN FROM SCRATCH</title>
+    <title>BITCOIN SEED GENERATOR</title>
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
 
     <style>
-        @font-face {
-            font-family: 'IranSans';
-            src: url("/assets/fonts/IRANSansWeb.woff") format("woff");
-            font-weight: normal; 
-            font-display: block;
-        } 
-        @font-face {
-            font-family: 'IranSans-bold';
-            src: url("/assets/fonts/IRANSansWeb_Bold.woff") format("woff");
-            font-display: block;
-        }
         .ir_help{
-            font-family: IranSans;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             font-size:.75em;
         }
         .ir_boldtext{
-            font-family: IranSans-bold;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             font-size:.9em;
             font-weight: bold;
         }
         strong{
-            font-family: IranSans-bold;
+            font-weight: bold;
         }  
         .rtl_lang{
             direction: rtl;
@@ -115,12 +104,14 @@
                 <div class="direction_aware col mt-2 mb-2 px-2 py-1 ir_help" 
                 style="border-radius: 5px; margin-left:63px;margin-right: 63px; color:f9f9f9;border:solid 2px #e8de1a;height:60px;background-color: #333;">
                     <div id="div_help_step_initial" class="pt-1 text-center" style="font-size: 1.4em;">
-                        <span id="spn_help_step_initial" class="px-1"></span>
+                        <span id="spn_help_step_initial" class="px-1">Prepare the Dice(s) and make sure network is disconnected. Then click the Start button</span>
                         <img id="img_go_to_dice_roll_step" src="/assets/images/seed-gen-blue-start.png" style="height: 40px;cursor: pointer;">
                     </div>
                     <div id="div_help_step_dice_roll" class="hidden" style="font-size: 1.3em;">
+                        Import the results of 100 dice rolls in 20 groups of 5. if you have more that 1 dice, be sure to read the results in one consistent direction (ex. left to right). insert the result of each batch by clicking on the red plus button.
                     </div>
                     <div id="div_help_step_gen_computer_rndm" class="hidden" style="font-size: 1.3em;">
+                        The dice roll step is completed. Now we will take a random number from your system and generate the private key. click on the below blue button and MOVE your mouse around to add some extra randomness.
                     </div>
                     <div id="div_help_step_gen_mnemonic_seed" class="hidden" style="font-size: 1.3em;">
                         <div class="row">
@@ -128,6 +119,7 @@
                                 <img src="/assets/images/seed-gen-green-success.png" style="height: 49px;">
                             </div>
                             <div id="div_help_step_success" class="col-11" style="font-size:1em;margin-top:2px;">
+                                Your bitcoin private key and bip39 mnemonic words have been generated successfully. anything on the page will be purged after you close this window.
                             </div>
                         </div>
                     </div>
@@ -138,7 +130,7 @@
                 <div class="col text-left">
                     <div dir="rtl" id="div_dice_random_result" class="input-group px-5 py-1 fade-state ">
                         <div class="input-group-prepend">
-                            <span id="dice_roll_result" class="input-group-text ir_boldtext"></span>
+                            <span id="dice_roll_result" class="input-group-text ir_boldtext">Dice rolls</span>
                         </div>
                         <textarea id="dice_text_area" tabindex="-1" class="form-control text-left" dir="ltr" readonly aria-label="With textarea"></textarea>
                     </div>
@@ -150,7 +142,8 @@
                                 <div class="col-1">
                                     <img class="mt-3" src="/assets/images/danger-hand.png" style="height: 60px;">
                                 </div>
-                                <div id="div_help_warning" class="col-11" style="margin-top:2px;">
+                                <div id="div_help_warning" class="col-11" style="margin-top:20px;">
+                                    NEVER save neither mnemonic words nor private key on an online computer or you will simply lose your bitcoins.
                                 </div>
                             </div>
                         </div>
@@ -161,9 +154,9 @@
 
             <div class="row">
                 <div class="col">
-                    <div id="div_gen_computer_random" class="mt-1 mb-1 px-2 px-5  fade-state ir_boldtext">
+                    <div id="div_gen_computer_random" class="mt-1 mb-1 px-2 px-5  fade-state">
                         <button class="btn btn-info font-weight-bold" type="button"
-                            id="btn_generate_computer_random" tabindex="-1" style="width:100%;font-size:1.3em;" disabled>
+                            id="btn_generate_computer_random" tabindex="-1" style="width:100%;font-size:1.3em;padding-top: 5px;" disabled>
                             GENERATE SEED AND BIP39 MNEMONIC 
                             <span id="gen_seed_spinner" class="spinner-grow spinner-grow-lg" style="visibility: hidden;"></span>
                         </button>
@@ -175,7 +168,7 @@
                 <div class="col" dir="rtl">
                     <div id="div_pk_before_xor" class="input-group px-5 py-1 fade-state">
                         <div class="input-group-prepend ir_boldtext">
-                            <span id="all_random_numbers" class="input-group-text"></span>
+                            <span id="all_random_numbers" class="input-group-text">Random<br/>numbes</span>
                         </div>
                         <textarea id="all_random_numbers_area" tabindex="-1" class="form-control text-left" dir="ltr"
                             aria-label="With textarea" style="font-size:.95em;" readonly></textarea>
@@ -187,7 +180,7 @@
                 <div class="col" dir="rtl">
                     <div id="div_privatekey" class="input-group px-5 py-1 fade-state">
                         <div class="input-group-prepend ir_boldtext">
-                            <span id="private_key_text" class="input-group-text" id="inputGroup-sizing-lg"></span>
+                            <span id="private_key_text" class="input-group-text" id="inputGroup-sizing-lg">Bitcoin private key</span>
                         </div>
                         <input id="privatekey_text_area" tabindex="-1" class="form-control" aria-label="Sizing example input"
                             aria-describedby="inputGroup-sizing-lg" dir="ltr" readonly>
@@ -199,7 +192,7 @@
                 <div class="col" dir="rtl">
                     <div id="div_mnemonic" class="input-group px-5 pt-1 fade-state">
                         <div class="input-group-prepend ir_boldtext">
-                            <span id="bip39_seed" class="input-group-text font-weight-bold"></span>
+                            <span id="bip39_seed" class="input-group-text font-weight-bold">(SEED)<br/>BIP39 Mnemonic</span>
                         </div>
                         <textarea id="bip39_seed_area" rows="3" tabindex="-1" class="form-control text-left" dir="ltr" aria-label="With textarea"
                             style="font-size:1.1em;font-weight: bold;" readonly></textarea>
@@ -217,6 +210,7 @@
                 <br/>
                 <br/>
                 <span id="spn_connection_state_error" dir="rtl" class="text-center ir_boldtext font-weight-bold" style="color:#f0f0f0;font-size:1.5em;">
+                    During the seed generation process, this machine should be completely offline<br/>Please disconnect either wifi or local network and start over
                 </span>
             </div>
         </div>      
@@ -228,12 +222,14 @@
                 <img src="/assets/images/green-warning.png" style="width:200px;margin-top:100px;">
                 <br/>
                 <br/>
-                <span id="spn_seed_gen_consent_message" dir="rtl" class="text-center ir_boldtext font-weight-bold" style="color:#f0f0f0;font-size:1.4em;"></span>
+                <span id="spn_seed_gen_consent_message" dir="rtl" class="text-center ir_boldtext font-weight-bold" style="color:#f0f0f0;font-size:1.4em;">
+                    IMPORTANT: If you haven't verify the digital signature of the downloaded file yourself, Use this tool for exprement only
+                </span>
                 <br>
                 <br>
                 <button class="btn btn-info font-weight-bold" type="button"
                     id="btn_seed_gen_consent_continue" tabindex="-1" style="width:70%;font-size:1.3em;">
-                    <span id="spn_seed_gen_consent_continue" class="ir_boldtext"></span>
+                    <span id="spn_seed_gen_consent_continue" class="ir_boldtext">RUN SEED GENERATOR TOOL</span>
                     <!-- <span id="gen_seed_spinner" class="spinner-grow spinner-grow-lg" style="visibility: hidden;"></span> -->
                 </button>
             </div>
@@ -241,6 +237,6 @@
     </div>      
 
     <script type="text/javascript" src="/dist/util-seed_gen_bundle.js"></script>
-    <script type="text/javascript" src="/dist/localizer_bundle.js"></script>
+    <!-- <script type="text/javascript" src="/dist/localizer_bundle.js"></script> -->
     </body>
 </html>

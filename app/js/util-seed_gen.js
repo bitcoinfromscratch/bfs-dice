@@ -154,8 +154,6 @@ $('#btn_generate_computer_random').click( _ => {
         $('#btn_generate_computer_random').attr('disabled', 'true')
         
         window.setTimeout( _ => {
-            // generate_seed('13153 63353 53122 43163 45365 65311 14656 15122 63415 56165 22421 65221 36525 15634 56525 63666 31462 25612 25453 46342')
-            // generate_seed('13153 63353 53122 43163 45365 65311 14656 15122 63415 56165 22421 65221 36525 15634 56525 63666 31462 25612 25453')
             generate_seed($('#dice_text_area').val())
         }, 7000)
 

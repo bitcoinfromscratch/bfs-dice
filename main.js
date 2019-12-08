@@ -1,10 +1,6 @@
 // Modules to control application life and create native browser window
 const {app, BrowserWindow} = require('electron')
 
-const Store = require('electron-store')
-const store = new Store()
-store.set('version-number', 'v0.1.0 - RC2')
-
 // set express app and routes
 require('./express-route-module')()
 
@@ -38,13 +34,10 @@ function createWindow () {
   mainWindow.isFullScreenable(false)
 
   // and load the index.html of the app.
-  // mainWindow.loadFile(path.join(__dirname, 'app/main.html'))
   mainWindow.loadURL('http://localhost:3000')
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
-
-
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
