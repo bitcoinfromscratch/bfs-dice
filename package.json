@@ -1,15 +1,15 @@
 {
   "name": "bfs-dice",
-  "version": "0.1.0",
-  "description": "Generate bitcoin seed with dice",
+  "version": "0.1.1",
+  "description": "Generate bitcoin BIP39 seed with dice",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
     "browserify:util-seed_gen": "browserify app/js/util-seed_gen.js --exclude=node_modules/bip39/src/wordlists/japanese.json --exclude=node_modules/bip39/src/wordlists/chinese_simplified.json --exclude=node_modules/bip39/src/wordlists/chinese_traditional.json --exclude=node_modules/bip39/src/wordlists/french.json --exclude=node_modules/bip39/src/wordlists/italian.json --exclude=node_modules/bip39/src/wordlists/korean.json --exclude=node_modules/bip39/src/wordlists/spanish.json -o app/js/dist/util-seed_gen_bundle.js",
     "package:linux": "electron-packager . bfs-dice --icon=assets/images/bfs-app-icon-v5-512.png --out=packages --platform=linux --arch=x64 --overwrite --prune=true --ignore=dev --ignore=.gitignore --ignore=.git --ignore=gpg-pub-key --ignore=tests --ignore=releases",
     "package:deb": "electron-installer-debian --src ./packages/bfs-dice-linux-x64 --dest packages/debs --icon=assets/images/bfs-app-icon-v5-512.png --arch amd64",
-    "package:win": "electron-packager . bfs-dice_0.1.0 --out=packages --platform=win32 --arch=x64 --overwrite --prune=true --icon=assets/images/bfs-app-icon-v5-512.ico --ignore=dev --ignore=.gitignore --ignore=.git --ignore=gpg-pub-key --ignore=tests --ignore=releases",
-    "package:mac": "electron-packager . bfs-dice_0.1.0 --overwrite --platform=darwin --arch=x64 --out=packages --prune=true --icon=assets/images/bfs-app.icns --ignore=dev --ignore=.gitignore --ignore=.git --ignore=gpg-pub-key --ignore=tests --ignore=releases"
+    "package:win": "electron-packager . bfs-dice_0.1.1 --out=packages --platform=win32 --arch=x64 --overwrite --prune=true --icon=assets/images/bfs-app-icon-v5-512.ico --ignore=dev --ignore=.gitignore --ignore=.git --ignore=gpg-pub-key --ignore=tests --ignore=releases",
+    "package:mac": "electron-packager . bfs-dice_0.1.1 --overwrite --platform=darwin --arch=x64 --out=packages --prune=true --icon=assets/images/bfs-app.icns --ignore=dev --ignore=.gitignore --ignore=.git --ignore=gpg-pub-key --ignore=tests --ignore=releases"
   },
   "repository": "https://github.com/bitcoinfromscratch/bfs-dice.git",
   "keywords": [
