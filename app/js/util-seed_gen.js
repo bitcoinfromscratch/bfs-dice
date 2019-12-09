@@ -221,6 +221,13 @@ $('#btn_seed_gen_consent_continue').click( _ => {
     $('#div_seed_gen_consent_splash').addClass('modal-hidden')
 })
 
+// dismiss the connection warning
+$('#btn_connection_state_error_continue').click( _ => {
+    $('#div_connection_detected').removeClass('modal-visible')
+    $('#div_connection_detected').addClass('modal-hidden')
+    _user_continue_consent=true
+})
+
 // DICE input grab and validation
 $('#dice_roll_input_1').keyup( _=>{
     if(validate_dice_input(1)){
@@ -257,10 +264,15 @@ window.setInterval( _ => {
     check_connection_status()
 }, 3000)
 
+_user_continue_consent=false
 function check_connection_status(){
     if(window.navigator.onLine){
-        $('#div_connection_detected').removeClass('modal-hidden')
-        $('#div_connection_detected').addClass('modal-visible')
+        if(!_user_continue_consent){
+            $('#div_connection_detected').removeClass('modal-hidden')
+            $('#div_connection_detected').addClass('modal-visible')
+        }else{
+            $('#img_network_is_present').css('visibility', 'visible')
+        }
     }
 }
 check_connection_status()
