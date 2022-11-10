@@ -25,7 +25,7 @@
   "devDependencies": {
     "bootstrap": "^4.3.1",
     "browserify": "^16.5.0",
-    "electron": "^6.0.9",
+    "electron": "^18.3.7",
     "electron-packager": "^14.0.6",
     "jquery": "^3.4.1",
     "popper.js": "^1.16.0"
